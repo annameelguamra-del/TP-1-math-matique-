@@ -1,7 +1,7 @@
-#include <stdio.h>
+    #include <stdio.h>
 
-// -------- PGCD --------
-long long pgcd(long long a, long long b) {
+    // -------- PGCD --------
+    long long pgcd(long long a, long long b) {
     if (a < 0) a = -a;
     if (b < 0) b = -b;
     while (b != 0) {
@@ -10,16 +10,16 @@ long long pgcd(long long a, long long b) {
         b = r;
     }
     return a;
-}
+    }
 
-// -------- PPCM --------
-long long ppcm(long long a, long long b) {
+    // -------- PPCM --------
+    long long ppcm(long long a, long long b) {
     long long d = pgcd(a, b);
     return (a / d) * b;
-}
+    }
 
-// -------- Euclide Étendu --------
-long long euclide_etendu(long long a, long long b, long long *x, long long *y) {
+    // -------- Euclide Étendu --------
+    long long euclide_etendu(long long a, long long b, long long *x, long long *y) {
     if (b == 0) {
         *x = (a >= 0) ? 1 : -1;
         *y = 0;
@@ -30,10 +30,10 @@ long long euclide_etendu(long long a, long long b, long long *x, long long *y) {
     *x = y1;
     *y = x1 - (a / b) * y1;
     return d;
-}
+    }
 
-// -------- Fonction 1 : Résolution équation ax + by = c --------
-void equationLineaire() {
+    // -------- Fonction 1 : Résolution équation ax + by = c --------
+    void equationLineaire() {
     long long a, b, c;
     printf("\n=== Resolution de l'equation a*x + b*y = c ===\n");
 
@@ -68,17 +68,19 @@ void equationLineaire() {
     printf("\nSolution generale :\n");
     printf("x = %lld + %lld*t\n", xp, b / d);
     printf("y = %lld - %lld*t\n", yp, a / d);
-}
+    }
 
-int estPremier(int x) {
+    // -------- Vérifier si nombre premier --------
+    int estPremier(int x) {
     if (x < 2) return 0;
     for (int i = 2; (long long)i * i <= x; i++) {
         if (x % i == 0) return 0;
     }
     return 1;
-}
+    }
 
-void afficherPremiers() {
+    // -------- Fonction 2 : Affichage nombres premiers --------
+    void afficherPremiers() {
     int n;
     printf("\n=== Affichage des nombres premiers < n ===\n");
     printf("Entrer n : ");
@@ -90,10 +92,10 @@ void afficherPremiers() {
         if (estPremier(i))
             printf("%d\n", i);
     }
-}
+    }
 
-
-int main() {
+    // -------- MAIN --------
+    int main() {
 
     int choix;
 
@@ -113,4 +115,5 @@ int main() {
     }
 
     return 0;
-}
+    }
+        
